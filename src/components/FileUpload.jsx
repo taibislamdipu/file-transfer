@@ -16,7 +16,7 @@ const FileUpload = () => {
   useEffect(() => {
     const UPLOADER = "tus";
     const COMPANION_URL = "http://companion.uppy.io";
-    const companionAllowedHosts = [];
+    // const companionAllowedHosts = [];
     const TUS_ENDPOINT = "https://tusd.tusdemo.net/files/";
     const XHR_ENDPOINT = "";
     const RESTORE = false;

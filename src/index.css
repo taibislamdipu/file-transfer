@@ -5,3 +5,7 @@
 .uppy-StatusBar-actions {
   display: none !important;
 }
+
+.uppy-Dashboard-AddFiles-info {
+  display: none !important;
+}
