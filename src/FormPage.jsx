@@ -1,10 +1,13 @@
 import { useState } from "react";
 
 const FormPage = () => {
+  // error state
+  let error = true;
+
   // form state
-  const [info, setinfo] = useState({
+  const [info, setInfo] = useState({
     id: crypto.randomUUID(),
-    fullName: "",
+    name: "",
     email: "",
     company: "",
     website: "",
@@ -15,7 +18,7 @@ const FormPage = () => {
     const name = e.target.name;
     let value = e.target.value;
 
-    setinfo({
+    setInfo({
       ...info,
       [name]: value,
     });
@@ -23,16 +26,11 @@ const FormPage = () => {
 
   // form submission
   const handleSubmit = () => {
-    console.log(info);
+    console.log("info--->", info);
   };
 
-  // error state
-  let error = true;
-
-  const errMsg = "Please complete this required field.";
-
   return (
-    <main className="lg:bg-[url('../src/assets/bg-image.png')] bg-cover">
+    <main className="lg:bg-[url('./assets/bg-image.png')] bg-cover">
       <div className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto gap-5 place-content-center min-h-screen p-4 lg:p-10">
         <div className="col-span-1 lg:col-span-2 flex items-center justify-between">
           <div className="space-y-3">
@@ -48,7 +46,7 @@ const FormPage = () => {
             <div>
               <img
                 className="h-16 2xl:h-20"
-                src="../src/assets/bzm-logo.png"
+                src="./assets/bzm-logo.png"
                 alt="BZM Logo"
               />
             </div>
@@ -63,21 +61,21 @@ const FormPage = () => {
             <div className="space-y-4">
               <div className="grid-cols-2 gap-4 max-md:space-y-9 md:grid">
                 <div className="space-y-1">
-                  <label className="font-medium" htmlFor="fullName">
+                  <label className="font-medium" htmlFor="name">
                     Full Name<sup style={{ color: "#ca8b04" }}>*</sup>
                   </label>
                   <input
-                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A] transition"
                     type="text"
-                    name="fullName"
+                    name="name"
                     placeholder="John Smith"
-                    value={info.fullName}
+                    value={info.name}
                     onChange={handleChange}
                     required
                   />
                   {error && (
                     <span style={{ color: "#FF0000", fontStyle: "italic" }}>
-                      {errMsg}
+                      Please complete this required field.
                     </span>
                   )}
                 </div>
@@ -87,7 +85,7 @@ const FormPage = () => {
                     Email<sup style={{ color: "#ca8b04" }}>*</sup>
                   </label>
                   <input
-                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A] transition"
                     type="email"
                     name="email"
                     placeholder="john@example.com"
@@ -97,7 +95,7 @@ const FormPage = () => {
                   />
                   {error && (
                     <span style={{ color: "#FF0000", fontStyle: "italic" }}>
-                      {errMsg}
+                      Please complete this required field.
                     </span>
                   )}
                 </div>
@@ -107,7 +105,7 @@ const FormPage = () => {
                     Company Name
                   </label>
                   <input
-                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    className="block w-full transition rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
                     type="text"
                     name="company"
                     placeholder="BZM Graphics"
@@ -121,7 +119,7 @@ const FormPage = () => {
                     Website
                   </label>
                   <input
-                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    className="block w-full  rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 transition focus:ring-[#92C46A]"
                     type="text"
                     name="website"
                     placeholder="johnsmith.com"
@@ -136,7 +134,7 @@ const FormPage = () => {
                   Instruction<sup style={{ color: "#ca8b04" }}>*</sup>
                 </label>
                 <textarea
-                  className="block min-h-[120px] w-full rounded-md px-3 py-2.5 lg:min-h-[140px] border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                  className="block min-h-[120px] w-full transition rounded-md px-3 py-2.5 lg:min-h-[140px] border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
                   type="text"
                   name="instruction"
                   placeholder="Remove background & retouch service."
@@ -146,7 +144,7 @@ const FormPage = () => {
                 />
                 {error && (
                   <span style={{ color: "#FF0000", fontStyle: "italic" }}>
-                    {errMsg}
+                    Please complete this required field.
                   </span>
                 )}
               </div>
@@ -155,7 +153,7 @@ const FormPage = () => {
               <div>Cloudflare area</div>
             </div>
 
-            <div className="mt-8">
+            <div className="mb-4 mt-8">
               <button
                 type="submit"
                 className="rounded bg-[#979EAB] px-4 py-3 text-white transition-all hover:opacity-80 w-full font-medium"
