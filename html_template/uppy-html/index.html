@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Form Page</title>
+  </head>
+  <body class="bg-[#F4F4F4]">
+    <main class="lg:bg-[url('./assets/bg-image.png')] bg-cover">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto gap-5 place-content-center min-h-screen p-4 lg:p-10"
+      >
+        <!-- Form Head -->
+        <div class="col-span-1 lg:col-span-2 flex items-center justify-between">
+          <div class="space-y-3">
+            <h1 class="text-4xl 2xl:text-5xl text-[#92C46A] leading-tight">
+              Take Free Trail
+            </h1>
+            <p class="max-w-lg text-gray-700">
+              Choosing a professional photo editing company can ensure quality,
+              quick turnarounds, and exceptional results.
+            </p>
+          </div>
+          <div class="max-w-sm flex items-end flex-col gap-3">
+            <div>
+              <img
+                class="h-16 2xl:h-20"
+                src="./assets/bzm-logo.png"
+                alt="BZM Logo"
+              />
+            </div>
+            <p class="max-w-lg text-right">
+              Lorem ipsum dolor sit amet, consectetur
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          <form
+            class="w-full rounded border border-[#92C46A] shadow-lg p-5 bg-white"
+          >
+            <div class="space-y-4">
+              <div class="grid-cols-2 gap-4 max-md:space-y-9 md:grid">
+                <div class="space-y-1">
+                  <label class="font-medium" for="fullName"
+                    >Full Name<sup style="color: #ca8b04">*</sup></label
+                  >
+                  <input
+                    class="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A] transition"
+                    type="text"
+                    name="fullName"
+                    placeholder="John Smith"
+                    value=""
+                    required
+                  />
+                  <span style="color: #ff0000; font-style: italic"
+                    >Please complete this required field.</span
+                  >
+                </div>
+
+                <div class="space-y-1">
+                  <label class="font-medium" for="email"
+                    >Email<sup style="color: #ca8b04">*</sup></label
+                  >
+                  <input
+                    class="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A] transition"
+                    type="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    value=""
+                    required
+                  />
+                  <span style="color: #ff0000; font-style: italic"
+                    >Please complete this required field.</span
+                  >
+                </div>
+
+                <div class="space-y-1">
+                  <label class="font-medium" for="company">Company Name</label>
+                  <input
+                    class="block w-full transition rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    type="text"
+                    name="company"
+                    placeholder="BZM Graphics"
+                    value=""
+                  />
+                </div>
+
+                <div class="space-y-1">
+                  <label class="font-medium" for="website">Website</label>
+                  <input
+                    class="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 transition focus:ring-[#92C46A]"
+                    type="text"
+                    name="website"
+                    placeholder="johnsmith.com"
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <label class="font-medium" for="instruction"
+                  >Instruction<sup style="color: #ca8b04">*</sup></label
+                >
+                <textarea
+                  class="block min-h-[120px] w-full transition rounded-md px-3 py-2.5 lg:min-h-[140px] border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                  type="text"
+                  name="instruction"
+                  placeholder="Remove background & retouch service."
+                  value=""
+                  required
+                ></textarea>
+                <span style="color: #ff0000; font-style: italic"
+                  >Please complete this required field.</span
+                >
+              </div>
+
+              <!-- Cloudflare area -->
+              <div>Cloudflare area</div>
+            </div>
+
+            <div class="mb-4 mt-8">
+              <button
+                type="submit"
+                class="rounded bg-[#979EAB] px-4 py-3 text-white transition-all hover:opacity-80 w-full font-medium"
+                disabled=""
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-span-1 bg-[#F4F4F4]">File Upload Section</div>
+      </div>
+    </main>
+  </body>
+</html>
