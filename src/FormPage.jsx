@@ -6,23 +6,26 @@ const FormPage = () => {
     console.log(value);
   };
 
+  // form submission
   const handleSubmit = () => {
     console.log("handleSubmit");
   };
 
-  let error = true;
+  // error state
+  let error = false;
 
   const errMsg = "Please complete this required field.";
 
   return (
     <div className="grid grid-cols-2 max-w-7xl mx-auto gap-5 place-content-center h-screen">
       <div className="col-span-2 flex items-center justify-between">
-        <div>
-          <h1 className="text-5xl text-brand leading-tight">Take Free Trail</h1>
-          <p className="max-w-lg">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-            provident excepturi alias minima similique a animi facilis sit
-            laudantium illum?
+        <div className="space-y-3">
+          <h1 className="text-5xl text-[#92C46A] leading-tight">
+            Take Free Trail
+          </h1>
+          <p className="max-w-lg text-gray-700">
+            Choosing a professional photo editing company can ensure quality,
+            quick turnarounds, and exceptional results.
           </p>
         </div>
         <div className="max-w-sm flex items-end flex-col gap-3">
@@ -40,18 +43,19 @@ const FormPage = () => {
       </div>
 
       <div className="col-span-1">
-        <form className="w-full rounded border border-brand p-5">
+        <form className="w-full rounded border border-[#92C46A] p-5">
           <div className="space-y-4">
             <div className="space-y-1">
               <label className="font-medium" htmlFor="fullName">
                 Full Name<sup style={{ color: "#ca8b04" }}>*</sup>
               </label>
               <input
-                className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-brand"
+                className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
                 type="text"
                 name="fullName"
                 placeholder="John Smith"
                 onChange={handleChange}
+                required
               />
               {error && <span style={{ color: "#ca8b04" }}>{errMsg}</span>}
             </div>
@@ -61,11 +65,12 @@ const FormPage = () => {
                 Email<sup style={{ color: "#ca8b04" }}>*</sup>
               </label>
               <input
-                className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-brand"
+                className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
                 type="email"
                 name="email"
                 placeholder="john@example.com"
                 onChange={handleChange}
+                required
               />
               {error && <span style={{ color: "#ca8b04" }}>{errMsg}</span>}
             </div>
@@ -76,9 +81,9 @@ const FormPage = () => {
                   Company Name
                 </label>
                 <input
-                  className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-brand"
+                  className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
                   type="text"
-                  name="fullName"
+                  name="companyName"
                   placeholder="John Smith"
                   onChange={handleChange}
                 />
@@ -88,7 +93,7 @@ const FormPage = () => {
                   Website
                 </label>
                 <input
-                  className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-brand"
+                  className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
                   type="text"
                   name="website"
                   placeholder="johnsmith.com"
@@ -102,11 +107,12 @@ const FormPage = () => {
                 Instruction<sup style={{ color: "#ca8b04" }}>*</sup>
               </label>
               <textarea
-                className="block min-h-[120px] w-full rounded-md px-3 py-2.5 lg:min-h-[180px] border focus:outline-none focus:ring-1 focus:ring-brand"
+                className="block min-h-[120px] w-full rounded-md px-3 py-2.5 lg:min-h-[180px] border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
                 type="text"
-                name="fullName"
-                placeholder="Instruction"
+                name="instruction"
+                placeholder="Remove background & retouch service."
                 onChange={handleChange}
+                required
               />
               {error && <span style={{ color: "#ca8b04" }}>{errMsg}</span>}
             </div>
@@ -120,6 +126,7 @@ const FormPage = () => {
               type="submit"
               className="rounded bg-[#979EAB] px-4 py-3 text-white transition-all hover:opacity-80 w-full font-medium"
               onClick={handleSubmit}
+              disabled={false}
             >
               Submit
             </button>
