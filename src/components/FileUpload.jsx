@@ -25,8 +25,8 @@ const FileUpload = () => {
       .use(Dashboard, {
         inline: true,
         target: "#app",
-        // showProgressDetails: true,
-        // proudlyDisplayPoweredByUppy: true,
+        showProgressDetails: true,
+        proudlyDisplayPoweredByUppy: true,
       })
 
       .use(Compressor);

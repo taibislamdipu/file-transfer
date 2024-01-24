@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.uppy-StatusBar-actions {
+/* .uppy-StatusBar-actions {
   display: none !important;
 }
 
 .uppy-Dashboard-AddFiles-info {
   display: none !important;
+} */
+
+.require-field: {
+  color: "#ca8b04";
 }

@@ -1,8 +1,7 @@
 // UserForm.js
 import { useState } from "react";
-import FileUpload from "./FileUpload";
 
-const UserForm = () => {
+const UserInfo = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -77,8 +76,6 @@ const UserForm = () => {
         ></textarea>
       </div>
 
-      <FileUpload />
-
       <button className="px-4 py-2 bg-purple-400" type="submit">
         Submit
       </button>
@@ -86,4 +83,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default UserInfo;

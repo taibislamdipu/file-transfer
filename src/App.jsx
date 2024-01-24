@@ -1,11 +1,11 @@
 import "./App.css";
-import UserForm from "./components/UserForm";
+import FormPage from "./FormPage";
 
 function App() {
   return (
-    <>
-      <UserForm />
-    </>
+    <main>
+      <FormPage />
+    </main>
   );
 }
 
