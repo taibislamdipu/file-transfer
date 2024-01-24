@@ -1,143 +1,176 @@
-import FileUpload from "./components/FileUpload";
+import { useState } from "react";
 
 const FormPage = () => {
+  // form state
+  const [info, setinfo] = useState({
+    id: crypto.randomUUID(),
+    fullName: "",
+    email: "",
+    company: "",
+    website: "",
+    instruction: "",
+  });
+
   const handleChange = (e) => {
+    const name = e.target.name;
     let value = e.target.value;
-    console.log(value);
+
+    setinfo({
+      ...info,
+      [name]: value,
+    });
   };
 
   // form submission
   const handleSubmit = () => {
-    console.log("handleSubmit");
+    console.log(info);
   };
 
   // error state
-  let error = false;
+  let error = true;
 
   const errMsg = "Please complete this required field.";
 
   return (
-    <div className="grid grid-cols-2 max-w-7xl mx-auto gap-5 place-content-center h-screen">
-      <div className="col-span-2 flex items-center justify-between">
-        <div className="space-y-3">
-          <h1 className="text-5xl text-[#92C46A] leading-tight">
-            Take Free Trail
-          </h1>
-          <p className="max-w-lg text-gray-700">
-            Choosing a professional photo editing company can ensure quality,
-            quick turnarounds, and exceptional results.
-          </p>
+    <main className="lg:bg-[url('../src/assets/bg-image.png')] bg-cover">
+      <div className="grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto gap-5 place-content-center min-h-screen p-4 lg:p-10">
+        <div className="col-span-1 lg:col-span-2 flex items-center justify-between">
+          <div className="space-y-3">
+            <h1 className="text-4xl 2xl:text-5xl text-[#92C46A] leading-tight">
+              Take Free Trail
+            </h1>
+            <p className="max-w-lg text-gray-700">
+              Choosing a professional photo editing company can ensure quality,
+              quick turnarounds, and exceptional results.
+            </p>
+          </div>
+          <div className="max-w-sm flex items-end flex-col gap-3">
+            <div>
+              <img
+                className="h-16 2xl:h-20"
+                src="../src/assets/bzm-logo.png"
+                alt="BZM Logo"
+              />
+            </div>
+            <p className="max-w-lg text-right">
+              Lorem ipsum dolor sit amet, consectetur
+            </p>
+          </div>
         </div>
-        <div className="max-w-sm flex items-end flex-col gap-3">
-          <div>
-            <img
-              className="h-[45px]"
-              src="../src/assets/bzm-logo.png"
-              alt="BZM Logo"
-            />
-          </div>
-          <p className="max-w-lg text-right">
-            Lorem ipsum dolor sit amet, consectetur
-          </p>
+
+        <div className="col-span-1">
+          <form className="w-full rounded border border-[#92C46A] shadow-lg p-5 bg-white">
+            <div className="space-y-4">
+              <div className="grid-cols-2 gap-4 max-md:space-y-9 md:grid">
+                <div className="space-y-1">
+                  <label className="font-medium" htmlFor="fullName">
+                    Full Name<sup style={{ color: "#ca8b04" }}>*</sup>
+                  </label>
+                  <input
+                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    type="text"
+                    name="fullName"
+                    placeholder="John Smith"
+                    value={info.fullName}
+                    onChange={handleChange}
+                    required
+                  />
+                  {error && (
+                    <span style={{ color: "#FF0000", fontStyle: "italic" }}>
+                      {errMsg}
+                    </span>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <label className="font-medium" htmlFor="email">
+                    Email<sup style={{ color: "#ca8b04" }}>*</sup>
+                  </label>
+                  <input
+                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    type="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    value={info.email}
+                    onChange={handleChange}
+                    required
+                  />
+                  {error && (
+                    <span style={{ color: "#FF0000", fontStyle: "italic" }}>
+                      {errMsg}
+                    </span>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <label className="font-medium" htmlFor="company">
+                    Company Name
+                  </label>
+                  <input
+                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    type="text"
+                    name="company"
+                    placeholder="BZM Graphics"
+                    value={info.company}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="font-medium" htmlFor="website">
+                    Website
+                  </label>
+                  <input
+                    className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                    type="text"
+                    name="website"
+                    placeholder="johnsmith.com"
+                    value={info.website}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="font-medium" htmlFor="instruction">
+                  Instruction<sup style={{ color: "#ca8b04" }}>*</sup>
+                </label>
+                <textarea
+                  className="block min-h-[120px] w-full rounded-md px-3 py-2.5 lg:min-h-[140px] border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
+                  type="text"
+                  name="instruction"
+                  placeholder="Remove background & retouch service."
+                  value={info.instruction}
+                  onChange={handleChange}
+                  required
+                />
+                {error && (
+                  <span style={{ color: "#FF0000", fontStyle: "italic" }}>
+                    {errMsg}
+                  </span>
+                )}
+              </div>
+
+              {/* Cloudflare area */}
+              <div>Cloudflare area</div>
+            </div>
+
+            <div className="mt-8">
+              <button
+                type="submit"
+                className="rounded bg-[#979EAB] px-4 py-3 text-white transition-all hover:opacity-80 w-full font-medium"
+                onClick={handleSubmit}
+                disabled={false}
+              >
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
+
+        <div className="col-span-1 bg-[#F4F4F4]">File Upload Section</div>
       </div>
-
-      <div className="col-span-1">
-        <form className="w-full rounded border border-[#92C46A] p-5">
-          <div className="space-y-4">
-            <div className="space-y-1">
-              <label className="font-medium" htmlFor="fullName">
-                Full Name<sup style={{ color: "#ca8b04" }}>*</sup>
-              </label>
-              <input
-                className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
-                type="text"
-                name="fullName"
-                placeholder="John Smith"
-                onChange={handleChange}
-                required
-              />
-              {error && <span style={{ color: "#ca8b04" }}>{errMsg}</span>}
-            </div>
-
-            <div className="space-y-1">
-              <label className="font-medium" htmlFor="email">
-                Email<sup style={{ color: "#ca8b04" }}>*</sup>
-              </label>
-              <input
-                className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
-                type="email"
-                name="email"
-                placeholder="john@example.com"
-                onChange={handleChange}
-                required
-              />
-              {error && <span style={{ color: "#ca8b04" }}>{errMsg}</span>}
-            </div>
-
-            <div className="grid-cols-2 gap-x-8 max-md:space-y-9 md:grid">
-              <div className="space-y-1">
-                <label className="font-medium" htmlFor="companyName">
-                  Company Name
-                </label>
-                <input
-                  className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
-                  type="text"
-                  name="companyName"
-                  placeholder="John Smith"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="font-medium" htmlFor="website">
-                  Website
-                </label>
-                <input
-                  className="block w-full rounded-md px-3 py-2.5 border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
-                  type="text"
-                  name="website"
-                  placeholder="johnsmith.com"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <label className="font-medium" htmlFor="instruction">
-                Instruction<sup style={{ color: "#ca8b04" }}>*</sup>
-              </label>
-              <textarea
-                className="block min-h-[120px] w-full rounded-md px-3 py-2.5 lg:min-h-[180px] border focus:outline-none focus:ring-1 focus:ring-[#92C46A]"
-                type="text"
-                name="instruction"
-                placeholder="Remove background & retouch service."
-                onChange={handleChange}
-                required
-              />
-              {error && <span style={{ color: "#ca8b04" }}>{errMsg}</span>}
-            </div>
-
-            {/* Cloudflare area */}
-            <div>Cloudflare area</div>
-          </div>
-
-          <div className="mt-8">
-            <button
-              type="submit"
-              className="rounded bg-[#979EAB] px-4 py-3 text-white transition-all hover:opacity-80 w-full font-medium"
-              onClick={handleSubmit}
-              disabled={false}
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <div className="col-span-1">
-        <FileUpload />
-      </div>
-    </div>
+    </main>
   );
 };
 
